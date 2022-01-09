@@ -9,7 +9,7 @@ describe('2 - Crie uma função que verifica se todos os animais de uma espécie
     }
 
     {
-      const actual = getAnimalsOlderThan('penguins', 12);
+      const actual = getAnimalsOlderThan('penguins', 10);
       const expected = false;
       expect(actual).toEqual(expected);
     }
