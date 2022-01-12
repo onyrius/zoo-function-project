@@ -23,7 +23,4 @@ function getRelatedEmployees(managerId) {
   }
 }
 
-console.log(getRelatedEmployees('9e7d4524-363c-416a-8759-8aa7e50c0992')); // [ 'Burl Bethea', 'Ola Orloff', 'Emery Elser' ]
 module.exports = { isManager, getRelatedEmployees };
-
-/** source https://github.com/tryber/sd-018-b-project-zoo-functions/pull/99/files */
