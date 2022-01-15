@@ -29,9 +29,7 @@ const sortingSpecie = () => species.reduce((objectLocation, specie) => {
   const objectSpecieSortedNameRedidents = {};
   const residentNames = residents.map((resident) => resident.name);
   const residentSortedNames = residentNames.sort();
-  console.log(residentSortedNames);
   objectSpecieSortedNameRedidents[name] = residentSortedNames;
-  console.log('objeto usando sort', objectSpecieSortedNameRedidents);
   if (specie.location === 'NE') objectLocation.NE.push(objectSpecieSortedNameRedidents);
   if (specie.location === 'NW') objectLocation.NW.push(objectSpecieSortedNameRedidents);
   if (specie.location === 'SE') objectLocation.SE.push(objectSpecieSortedNameRedidents);
@@ -39,15 +37,61 @@ const sortingSpecie = () => species.reduce((objectLocation, specie) => {
   return objectLocation;
 }, { NE: [], NW: [], SE: [], SW: [] });
 
-function getAnimalMap(options) {
-  if (!options || options.sex === 'female') return animalMap;
-  if (options.sorted === true && options.includeNames === true) return sortingSpecie();
-  if (options.includeNames === true) return findLocationSpecie();
+/* 
+const searchSexSpeciesFemale = () => {
+  const localNameFemale = species.reduce((localFeMales, animal) => {
+    const { location, residents } = animal;
+    const sex = residents.filter((resident) => resident.sex === 'female');
+    const objSpecieName = {};
+    const animalsName = sex.map((resident) => resident.name);
+    objSpecieName[animal.name] = animalsName;
+    if (location === 'NE') localFeMales.NE.push(objSpecieName);
+    if (location === 'NW') localFeMales.NW.push(objSpecieName);
+    if (location === 'SE') localFeMales.SE.push(objSpecieName);
+    if (location === 'SW') localFeMales.SW.push(objSpecieName);
+    return localFeMales;
+  }, { NE: [], NW: [], SE: [], SW: [] }); */
+/*   console.log('localNameFemaleNE', localNameFemale.NE);
+  console.log('localNameFemaleNW', localNameFemale.NW);
+  console.log('localNameFemaleSE', localNameFemale.SE);
+  console.log('localNameFemaleSW', localNameFemale.SW); */
+ // return localNameFemale;
+//};
+
+const sorting = (arr, sorted) => {
+  if (sorted) return arr.sort();
+  return arr;
+};
+
+const searchSexSpecies = (sexAnimal, sorted) => {
+  const localNameMale = species.reduce((localMales, animal) => {
+    const { location, residents } = animal;
+    let sex = residents;
+    if (sexAnimal) sex = residents.filter((resident) => resident.sex === sexAnimal);
+    const objSpecieName = {};
+    const animalsName = sex.map((resident) => resident.name);
+    if (sorted) animalsName.sort();
+    objSpecieName[animal.name] = animalsName;
+    localMales[location].push(objSpecieName);
+    return localMales;
+  }, { NE: [], NW: [], SE: [], SW: [] });
+  return localNameMale;
+};
+/* console.log('searchSexSpeciesmale', searchSexSpeciesMale()); */
+
+function getAnimalMap(options = {}) {
+  if (!options.includeNames) return animalMap;
+  if (options.sex || options.sorted) return searchSexSpecies(options.sex, options.sorted);
+  if (options.sorted) return sortingSpecie();
+  return findLocationSpecie();
 }
 
-console.log('getAnimal includes true e sorted', getAnimalMap({ includeNames: true, sorted: true }));
+console.log('getAnimal', getAnimalMap({ includeNames: true, sorted: true }).NE);
 console.log('---------------------------------------------');
 // console.log('getAnimal sex', getAnimalMap({ includeNames: true, sex: 'female' }));
 // console.log('getAnimal', getAnimalMap({ includeNames: true, sex: 'female', sorted: true }));
 module.exports = getAnimalMap;
-/** Soure : https://github.com/tryber/sd-018-b-project-zoo-functions/pull/31/files */
+
+/** Source :
+ * com ajuda do Tonn, do repositorio do thiago nobrega e do Thalles.
+ * https://github.com/tryber/sd-018-b-project-zoo-functions/pull/31/files */
