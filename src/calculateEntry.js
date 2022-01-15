@@ -1,13 +1,5 @@
 const data = require('../data/zoo_data');
-// { "child": 3, "adult": 2, "senior": 1 }
 
-/** const animalsList = () => species.reduce((animalList, specie) => {
-  const { name, residents } = specie;
-  const animalList2 = animalList;
-  // {...animalList, [name]: residents.lenght} (usando o spread)
-  animalList2[name] = residents.length;
-  return animalList2;
-}, {}); */
 function countEntrants(entrants) {
   const objEntrants = {};
   const filterPersonsChild = entrants.filter((persons) => persons.age < 18);
