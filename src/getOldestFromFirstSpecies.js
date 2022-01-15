@@ -2,17 +2,14 @@ const { employees, species } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
 function getOldestFromFirstSpecies(id) {
-  const animalDatas = [];
   const searchEmployee = employees.filter((emplooyee) => id === emplooyee.id);
   const findResponsible = searchEmployee.find((responsibleFor) => responsibleFor.responsibleFor);
-  console.log('linha 8', findResponsible);
   const findAnimals = species.find((specie) => findResponsible.responsibleFor.includes(specie.id));
-  console.log('animal', findAnimals);
-  const oldestAnimal = findAnimals.residents.map((animal) => {
-    if (Math.max(animal.age)) return animal;
-  });
-  console.log('oldest', oldestAnimal);
+  const oldestAnimal = findAnimals.residents.filter((animal) => animal);
+  return Object.values(oldestAnimal.sort((a, b) => b.age - a.age)[0]);
+  /* ultima linha com a ajuda do repositorio da Polyana: Object.values(animals.sort((a, b) => b.age - a.age)[0]); */
 }
 
-console.log('resultado da funçao', getOldestFromFirstSpecies('56d43ba3-a5a7-40f6-8dd7-cbb05082383f'));
 module.exports = getOldestFromFirstSpecies;
+
+/** Source: https://github.com/tryber/sd-018-b-project-zoo-functions/pull/129/files */
