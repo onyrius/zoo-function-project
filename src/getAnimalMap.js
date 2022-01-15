@@ -37,32 +37,6 @@ const sortingSpecie = () => species.reduce((objectLocation, specie) => {
   return objectLocation;
 }, { NE: [], NW: [], SE: [], SW: [] });
 
-/* 
-const searchSexSpeciesFemale = () => {
-  const localNameFemale = species.reduce((localFeMales, animal) => {
-    const { location, residents } = animal;
-    const sex = residents.filter((resident) => resident.sex === 'female');
-    const objSpecieName = {};
-    const animalsName = sex.map((resident) => resident.name);
-    objSpecieName[animal.name] = animalsName;
-    if (location === 'NE') localFeMales.NE.push(objSpecieName);
-    if (location === 'NW') localFeMales.NW.push(objSpecieName);
-    if (location === 'SE') localFeMales.SE.push(objSpecieName);
-    if (location === 'SW') localFeMales.SW.push(objSpecieName);
-    return localFeMales;
-  }, { NE: [], NW: [], SE: [], SW: [] }); */
-/*   console.log('localNameFemaleNE', localNameFemale.NE);
-  console.log('localNameFemaleNW', localNameFemale.NW);
-  console.log('localNameFemaleSE', localNameFemale.SE);
-  console.log('localNameFemaleSW', localNameFemale.SW); */
- // return localNameFemale;
-//};
-
-const sorting = (arr, sorted) => {
-  if (sorted) return arr.sort();
-  return arr;
-};
-
 const searchSexSpecies = (sexAnimal, sorted) => {
   const localNameMale = species.reduce((localMales, animal) => {
     const { location, residents } = animal;
