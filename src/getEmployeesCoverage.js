@@ -63,7 +63,9 @@ const getAllEmployees = () => {
   }));
   return allEmployees;
 };
-
+/** Source:
+ * linha 57 inspirado no retorno da Pollyana porque meu reduce estava sobre escrevendo o objeto retornado.
+ *  https://github.com/tryber/sd-018-b-project-zoo-functions/pull/129/files  */
 function getEmployeesCoverage(identify) {
   if (!identify) return getAllEmployees();
   const { name, id } = identify;
