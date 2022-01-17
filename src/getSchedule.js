@@ -54,7 +54,6 @@ const filterSpecies = (specieSearched) => {
   const filterSpecie = species.filter((specie) => specie.name === specieSearched);
   return filterSpecie.map((availability) => availability.availability)[0];
 };
-console.log('resultado da FILTERSPECIE', filterSpecies('lions'));
 
 function getSchedule(scheduleTarget = {}) {
   if (scheduleTarget === 'Monday') return getWeekHours(scheduleTarget);
@@ -62,23 +61,5 @@ function getSchedule(scheduleTarget = {}) {
   if (allSpecies.includes(scheduleTarget)) return filterSpecies(scheduleTarget);
   return getWeekHours();
 }
-/* console.log('RESULTADO sem parametros', getSchedule());
-console.log('RESULTADO com Monday', getSchedule('Monday'));
-console.log('RESULTADO com qualquer', getSchedule('Mnday'));
-console.log('RESULTADO com Tuesday', getSchedule('Tuesday')); */
-console.log('RESULTADO com lions', getSchedule('lions'));
 
 module.exports = getSchedule;
-/* const filterSpecies = (specie) => {
-  const searchingExibitions = Object.values(getWeekHours());
-  const exhibition = searchingExibitions.map((searchingExibition) => searchingExibition.exhibition);
-  const result = Object.entries(speciesFiltered).reduce((acc, dayMatch, index) => {
-    if (dayMatch.includes(dayAndHours)) {
-      const [day, hour] = dayMatch;
-      acc[day] = hour;
-      return acc;
-    }
-    return acc;
-  }, {});
-  return result;
-}; */

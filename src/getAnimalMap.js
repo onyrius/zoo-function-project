@@ -9,8 +9,6 @@ const animalMap = species.reduce((animalLocation, nameAndLocation) => {
   if (location === 'SW') animalLocation.SW.push(name);
   return animalLocation;
 }, { NE: [], NW: [], SE: [], SW: [] });
-// console.log(animalMap);
-//-------------------------------------------------------------------------------
 
 const findLocationSpecie = () => species.reduce((objectLocation, specie) => {
   const { name, residents } = specie;
@@ -51,7 +49,6 @@ const searchSexSpecies = (sexAnimal, sorted) => {
   }, { NE: [], NW: [], SE: [], SW: [] });
   return localNameMale;
 };
-/* console.log('searchSexSpeciesmale', searchSexSpeciesMale()); */
 
 function getAnimalMap(options = {}) {
   if (!options.includeNames) return animalMap;
@@ -59,11 +56,6 @@ function getAnimalMap(options = {}) {
   if (options.sorted) return sortingSpecie();
   return findLocationSpecie();
 }
-
-console.log('getAnimal', getAnimalMap({ includeNames: true, sorted: true }).NE);
-console.log('---------------------------------------------');
-// console.log('getAnimal sex', getAnimalMap({ includeNames: true, sex: 'female' }));
-// console.log('getAnimal', getAnimalMap({ includeNames: true, sex: 'female', sorted: true }));
 module.exports = getAnimalMap;
 
 /** Source :
