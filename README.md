@@ -4,6 +4,7 @@
       <img src="https://avatars.githubusercontent.com/u/82593112?s=48&amp;v=4" width="24" height="24" alt="@trybe-tech-ops">
       Trybe
    </a> !!! Neste bloco começamos a ter contato com as HOF's  </p>
+   
 ---
 
 ## Habilidades
