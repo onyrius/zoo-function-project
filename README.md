@@ -16,6 +16,11 @@
 
 ---
 
+### O que foi desenvolvido
+
+Foram implementadas várias funções para atender aos requisitos propostos e garantir que todas as funções passem nos testes unitários.
+
+---
 
 ## Stack utilizada
 <p>
@@ -24,18 +29,13 @@
  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
 </p>
 
+
+## Status do projeto
+<img src="zooFunction-status.png" alt="zooFunction-status.png"/>
+
+
 ## 🔗 Links
 
 [![github](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/onyrius)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
-## Status do projeto
-<img src="todo-list-status.png" alt="todo-list-status.png"/>
-
-
-
-### O que foi desenvolvido
-
-Foram implementadas várias funções para atender aos requisitos propostos e garantir que todas as funções passem nos testes unitários.
-
----
